@@ -1,0 +1,182 @@
+/* Consolidated button styles used across components */
+
+/* Button size variants */
+.btn-small {
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.btn-medium {
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.btn-large {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.btn-xlarge {
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Standard button styles */
+.btn-standard {
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-standard:hover {
+  background: #1565c0;
+}
+
+.btn-standard:active {
+  background: #0d47a1;
+}
+
+.btn-standard.full-width {
+  width: 100%;
+}
+
+/* Dialog button styles */
+.dialog-btn {
+  padding: 12px 24px;
+  border: 2px solid;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.dialog-btn:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.dialog-btn.cancel {
+  background: #ffffff;
+  border-color: #666;
+  color: #666;
+}
+
+.dialog-btn.cancel:hover {
+  background: #f5f5f5;
+  border-color: #333;
+  color: #333;
+}
+
+.dialog-btn.confirm {
+  transform: rotate(1deg);
+}
+
+.dialog-btn.danger {
+  background: #ff4757;
+  border-color: #c44569;
+  color: white;
+}
+
+.dialog-btn.danger:hover {
+  background: #ff3742;
+  border-color: #a23755;
+}
+
+.dialog-btn.warning {
+  background: #ffa502;
+  border-color: #ff6348;
+  color: white;
+}
+
+.dialog-btn.warning:hover {
+  background: #ff9f00;
+  border-color: #ff5722;
+}
+
+.dialog-btn.info {
+  background: #3742fa;
+  border-color: #2f3542;
+  color: white;
+}
+
+.dialog-btn.info:hover {
+  background: #2f36e8;
+  border-color: #1e2238;
+}
+
+/* Notification button */
+.notification-btn {
+  padding: 8px 20px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #333;
+  transform: rotate(-0.5deg);
+}
+
+.notification-btn:hover {
+  transform: rotate(0deg) scale(1.05);
+  background: #f5f5f5;
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+/* Icon buttons */
+.btn-icon-round {
+  border: 2px solid var(--theme-black);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-icon-round.add {
+  background: #2e7d32;
+  color: white;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 0px var(--theme-black);
+}
+
+.btn-icon-round.add:hover {
+  background: #1b5e20;
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 3px 3px 0px var(--theme-black);
+}
+
+.btn-icon-round.close {
+  background: #ff6b6b;
+  color: white;
+  width: 36px;
+  height: 36px;
+  transform: rotate(1deg);
+  box-shadow: 2px 2px 0px var(--theme-black);
+}
+
+.btn-icon-round.close:hover {
+  background: #ff5252;
+  transform: rotate(-1deg) scale(1.05);
+  box-shadow: 3px 3px 0px var(--theme-black);
+}

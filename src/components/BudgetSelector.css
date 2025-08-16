@@ -1,0 +1,61 @@
+.budget-selector-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.budget-selector-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #333;
+  overflow: hidden;
+}
+
+.budget-selector {
+  padding: 8px 12px;
+  border: none;
+  background: white;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 150px;
+  flex: 1;
+}
+
+.budget-selector:focus {
+  outline: none;
+  background: #f8f8f8;
+}
+
+.create-budget-btn {
+  width: 36px;
+  height: auto;
+  border: none;
+  border-left: 2px solid #333;
+  background: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.create-budget-btn:hover {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.create-budget-btn:active {
+  transform: translateY(0);
+}

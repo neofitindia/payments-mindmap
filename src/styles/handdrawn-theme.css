@@ -1,0 +1,184 @@
+/* Hand-drawn style theme components */
+
+/* Color palette and design system variables */
+:root {
+  /* Colors */
+  --theme-bg: #fffef7;
+  --theme-paper: #fafafa;
+  --theme-white: #ffffff;
+  --theme-black: #1e1e1e;
+  --theme-border: #000000;
+  --theme-green: #4CAF50;
+  --theme-green-dark: #45a049;
+  --theme-blue: #2196F3;
+  --theme-red: #ff6b6b;
+  --theme-red-dark: #ff5252;
+  --theme-orange: #ffa502;
+  --theme-gray: #666666;
+  --theme-gray-light: #f8f8f0;
+  --theme-gray-lighter: #f5f5f5;
+  --theme-gray-border: #dddddd;
+  --theme-gray-alt: #f8f9fa;
+  --theme-text: #333333;
+  --theme-success: #2e7d32;
+  --theme-success-dark: #1b5e20;
+  --theme-danger: #f44336;
+  --theme-info: #1976d2;
+  --theme-info-dark: #1565c0;
+  
+  /* Spacing system */
+  --space-xs: 2px;
+  --space-sm: 4px;
+  --space-md: 8px;
+  --space-lg: 12px;
+  --space-xl: 16px;
+  --space-2xl: 20px;
+  --space-3xl: 24px;
+  --space-4xl: 30px;
+  
+  /* Component dimensions */
+  --sidebar-collapsed-width: 42px;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  
+  /* Shadows */
+  --shadow-sm: 2px 2px 0px var(--theme-black);
+  --shadow-md: 3px 3px 0px var(--theme-black);
+  --shadow-subtle: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Hand-drawn style base elements */
+.handdrawn-element {
+  border: var(--space-xs) solid var(--theme-black);
+  border-style: dashed;
+  background: var(--theme-bg);
+  font-family: var(--font-ui);
+  transition: all 0.2s ease;
+}
+
+.handdrawn-paper {
+  background: var(--theme-paper);
+  font-family: var(--font-ui);
+}
+
+.handdrawn-text {
+  font-family: var(--font-ui);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hand-drawn style transforms and shadows */
+.handdrawn-tilt-left { transform: rotate(-0.2deg); }
+.handdrawn-tilt-right { transform: rotate(0.2deg); }
+.handdrawn-tilt-left-more { transform: rotate(-0.3deg); }
+.handdrawn-tilt-right-more { transform: rotate(0.3deg); }
+
+.handdrawn-shadow { box-shadow: var(--shadow-sm); }
+.handdrawn-shadow-hover { box-shadow: var(--shadow-md); }
+.handdrawn-shadow-subtle { box-shadow: var(--shadow-subtle); }
+
+/* Common button base styles */
+.btn-handdrawn {
+  background: var(--theme-green);
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-md);
+  color: white;
+  padding: var(--space-lg) var(--space-2xl);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: rotate(-0.2deg);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-handdrawn:hover {
+  background: var(--theme-green-dark);
+  transform: rotate(0.2deg) translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-handdrawn.danger {
+  background: var(--theme-red);
+}
+
+.btn-handdrawn.danger:hover {
+  background: var(--theme-red-dark);
+}
+
+.btn-handdrawn.primary {
+  background: var(--theme-blue);
+}
+
+.btn-handdrawn.primary:hover {
+  background: #1976d2;
+}
+
+/* Form elements with hand-drawn style */
+.input-handdrawn {
+  padding: var(--space-lg) var(--space-lg);
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-md);
+  background: var(--theme-white);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  transform: rotate(0.1deg);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.2s ease;
+}
+
+.input-handdrawn:focus {
+  outline: none;
+  border-color: var(--theme-blue);
+  box-shadow: 0 0 0 var(--space-xs) rgba(33, 150, 243, 0.2);
+  transform: rotate(-0.1deg);
+}
+
+/* Section and card styling */
+.card-handdrawn {
+  background: var(--theme-white);
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-2xl);
+  box-shadow: var(--shadow-md);
+  transform: rotate(0.1deg);
+  overflow: hidden;
+}
+
+.card-handdrawn:nth-child(even) {
+  transform: rotate(-0.1deg);
+}
+
+.card-header-handdrawn {
+  background: var(--theme-gray-light);
+  border-bottom: var(--space-xs) dashed var(--theme-black);
+  padding: var(--space-xl) var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-content-handdrawn {
+  padding: var(--space-2xl);
+}
+
+/* Badge styling */
+.badge-handdrawn {
+  background: var(--theme-green);
+  color: white;
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-xl);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 12px;
+  font-weight: 600;
+  transform: rotate(0.5deg);
+  box-shadow: var(--shadow-subtle);
+}

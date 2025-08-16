@@ -1,0 +1,108 @@
+/* Context Menu - Hand-drawn themed right-click menu */
+
+.context-menu {
+  position: fixed;
+  background: var(--theme-white);
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    3px 3px 0px var(--theme-black),
+    6px 6px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1100;
+  min-width: 160px;
+  padding: var(--space-sm);
+  transform: rotate(-0.1deg);
+  font-family: var(--font-ui);
+  animation: contextMenuEnter 0.15s ease-out;
+}
+
+.context-menu-item {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: var(--space-md) var(--space-lg);
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--theme-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  transition: all 0.15s ease;
+  transform: rotate(0.05deg);
+}
+
+.context-menu-item:hover {
+  background: var(--theme-gray-light);
+  transform: rotate(-0.05deg) scale(1.02);
+  color: var(--theme-black);
+}
+
+.context-menu-item:active {
+  transform: rotate(0.1deg) scale(0.98);
+  background: var(--theme-gray);
+}
+
+.context-menu-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.context-menu-label {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Special item types */
+.context-menu-item.danger {
+  color: var(--theme-danger);
+}
+
+.context-menu-item.danger:hover {
+  background: rgba(244, 67, 54, 0.1);
+  color: var(--theme-danger);
+}
+
+.context-menu-item.primary {
+  color: var(--theme-info);
+  font-weight: 600;
+}
+
+.context-menu-item.primary:hover {
+  background: rgba(33, 150, 243, 0.1);
+  color: var(--theme-info);
+}
+
+/* Entrance animation */
+@keyframes contextMenuEnter {
+  from {
+    opacity: 0;
+    transform: rotate(-0.1deg) scale(0.95) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-0.1deg) scale(1) translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .context-menu {
+    min-width: 140px;
+    padding: var(--space-xs);
+  }
+  
+  .context-menu-item {
+    padding: var(--space-lg) var(--space-md);
+    font-size: 13px;
+  }
+  
+  .context-menu-icon {
+    font-size: 14px;
+    width: 18px;
+  }
+}

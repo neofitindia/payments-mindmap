@@ -1,0 +1,143 @@
+/* Shared Floating Dialog - Reusable modal component with hand-drawn theme */
+
+/* Dialog backdrop and positioning */
+.shared-floating-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-2xl);
+  backdrop-filter: blur(2px);
+}
+
+.shared-floating-dialog {
+  background: var(--theme-bg);
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    4px 4px 0px var(--theme-black),
+    8px 8px 16px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-ui);
+  position: relative;
+  /* Hand-drawn style imperfections */
+  transform: rotate(-0.2deg);
+  border-style: solid;
+}
+
+/* Dialog header */
+.shared-floating-header {
+  background: var(--theme-gray-light);
+  border-bottom: var(--space-xs) dashed var(--theme-black);
+  padding: var(--space-2xl) var(--space-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.shared-floating-title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-ui);
+}
+
+.shared-floating-close-btn {
+  background: #ff6b6b;
+  border: 2px solid #1e1e1e;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  transform: rotate(0.2deg);
+  font-family: var(--font-ui);
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.shared-floating-close-btn:hover {
+  background: var(--theme-danger);
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 3px 3px 0px #1e1e1e;
+}
+
+/* Dialog content */
+.shared-floating-content {
+  padding: var(--space-3xl);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Auto-focus first input */
+.shared-floating-content input:first-of-type {
+  /* Will be focused by parent component */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .shared-floating-backdrop {
+    padding: var(--space-xl);
+  }
+  
+  .shared-floating-dialog {
+    max-height: 95vh;
+  }
+  
+  .shared-floating-header {
+    padding: var(--space-xl) var(--space-2xl);
+  }
+  
+  .shared-floating-title {
+    font-size: 16px;
+  }
+  
+  .shared-floating-close-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+  }
+  
+  .shared-floating-content {
+    padding: var(--space-2xl);
+  }
+}
+
+/* Focus trap for accessibility */
+.shared-floating-dialog {
+  isolation: isolate;
+}
+
+/* Smooth entrance animation */
+.shared-floating-dialog {
+  animation: floatingDialogEnter 0.2s ease-out;
+}
+
+@keyframes floatingDialogEnter {
+  from {
+    opacity: 0;
+    transform: rotate(-0.2deg) scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-0.2deg) scale(1) translateY(0);
+  }
+}
