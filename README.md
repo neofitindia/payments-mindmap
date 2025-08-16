@@ -4,29 +4,9 @@ A React-based payment distribution visualizer with an interactive hand-drawn min
 
 ## Current State
 
-This application is a fully functional payment tracking tool built with React 19 and TypeScript. It provides an intuitive visual interface for managing payment distributions across multiple recipients and budgets.
+This application is currently at **v0.1.0** and was built with the assistance of [Claude Code](https://claude.ai/code) by [Anthropic](https://www.anthropic.com).
 
-**Key Features:**
-- Multi-budget system with data isolation
-- Interactive SVG canvas with drag and drop positioning
-- Real-time currency formatting (Indian Rupees)
-- Context menus and keyboard shortcuts (r/t/m/b/?)
-- Import/export functionality with JSON backup
-- Transfer system between recipients
-- Recipient consolidation for transaction management
-- Local data persistence using IndexedDB
-- Hand-drawn aesthetic with responsive design
-
-**Technical Stack:**
-- React 19 with TypeScript (strict mode)
-- IndexedDB v2 for client-side storage
-- Custom CSS with comprehensive design system
-- No external API dependencies
-
-**Performance:**
-- Bundle size: 76.52 kB gzipped
-- Optimized with React.memo on all components
-- Efficient IndexedDB usage with proper indexing
+The application currently meets the intended prerequisites of our organization. We might add more features down the line as and when needed.
 
 ## How to Use
 
@@ -64,7 +44,7 @@ The build artifacts will be stored in the `build/` directory.
 
 ### Live Demo
 
-Experience the application at: https://neofitindia.github.io/payments-mindmap
+Experience the application at: https://pm.neofitindia.com/
 
 ## Issue Reporting
 
