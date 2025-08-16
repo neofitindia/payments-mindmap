@@ -2,7 +2,7 @@
   "name": "payments-mindmap",
   "version": "0.1.0",
   "description": "Payment distribution mindmap with interactive canvas, multi-budget system, and local data persistence",
-  "homepage": "https://neofitindia.github.io/payments-mindmap",
+  "homepage": "https://pm.neofitindia.com",
   "private": true,
   "dependencies": {
     "react": "^19.1.1",
