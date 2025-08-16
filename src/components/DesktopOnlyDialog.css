@@ -1,0 +1,139 @@
+/* Desktop-only dialog styling */
+.desktop-only-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.desktop-only-dialog {
+  width: 350px;
+  min-height: 200px;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  background: #fffef7;
+  border: 3px solid #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.desktop-only-dialog .dialog-content {
+  padding: 24px;
+  font-family: var(--font-ui);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.desktop-only-dialog .dialog-icon.large {
+  font-size: 48px;
+  margin-bottom: var(--space-xl);
+  animation: bounce 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.desktop-only-dialog .dialog-title {
+  font-size: 24px;
+  color: var(--theme-text);
+  margin-bottom: var(--space-xl);
+  transform: rotate(-0.5deg);
+}
+
+.desktop-only-dialog .dialog-message {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--theme-text-secondary);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+.desktop-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  text-align: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 14px;
+  color: var(--theme-text-secondary);
+  transform: rotate(0.2deg);
+}
+
+.feature-item:nth-child(even) {
+  transform: rotate(-0.2deg);
+}
+
+.feature-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.dialog-subtitle {
+  font-size: 14px;
+  color: var(--theme-text-muted);
+  font-style: italic;
+  margin: 0;
+  transform: rotate(0.3deg);
+}
+
+/* Mobile-specific visibility */
+@media (max-width: 768px) {
+  .desktop-only-overlay {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-only-overlay {
+    display: none !important;
+  }
+}

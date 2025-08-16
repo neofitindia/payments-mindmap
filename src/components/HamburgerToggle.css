@@ -1,0 +1,129 @@
+.hamburger-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  color: var(--theme-text);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburger-toggle:hover {
+  background: var(--theme-gray-lighter);
+  transform: scale(1.05);
+}
+
+.hamburger-toggle:active {
+  transform: scale(0.95);
+}
+
+.hamburger-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+/* Hamburger lines container */
+.hamburger-lines {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Default state - all lines visible and horizontal */
+.line {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  opacity: 1;
+  transform: translateY(0) rotate(0deg) scaleX(1);
+}
+
+/* Collapsed state (default) - hamburger lines */
+.hamburger-toggle.collapsed .line-top {
+  transform: translateY(0) rotate(0deg) scaleX(1);
+  opacity: 1;
+}
+
+.hamburger-toggle.collapsed .line-middle {
+  transform: translateY(0) rotate(0deg) scaleX(1);
+  opacity: 1;
+}
+
+.hamburger-toggle.collapsed .line-bottom {
+  transform: translateY(0) rotate(0deg) scaleX(1);
+  opacity: 1;
+}
+
+/* Expanded state - X formation */
+.hamburger-toggle.expanded .line-top {
+  transform: translateY(6px) rotate(45deg) scaleX(1);
+  opacity: 1;
+}
+
+.hamburger-toggle.expanded .line-middle {
+  transform: translateY(0) rotate(0deg) scaleX(0);
+  opacity: 0;
+}
+
+.hamburger-toggle.expanded .line-bottom {
+  transform: translateY(-6px) rotate(-45deg) scaleX(1);
+  opacity: 1;
+}
+
+/* Hand-drawn effect filter */
+.hamburger-toggle svg {
+  position: relative;
+}
+
+.hamburger-toggle svg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: contrast(1.1) brightness(0.95);
+  z-index: -1;
+}
+
+/* Add subtle rotation on hover for personality */
+.hamburger-toggle:hover svg {
+  transform: rotate(1deg);
+}
+
+.hamburger-toggle.expanded:hover svg {
+  transform: rotate(-1deg);
+}
+
+/* Enhanced focus state for accessibility */
+.hamburger-toggle:focus {
+  outline: 2px solid var(--theme-info);
+  outline-offset: 2px;
+  background: var(--theme-gray-lighter);
+}
+
+/* Roughen filter for hand-drawn effect */
+.hamburger-toggle svg defs {
+  display: none;
+}
+
+/* Add the SVG filter directly */
+.hamburger-toggle::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Make lines slightly imperfect for hand-drawn look */
+@keyframes wiggle {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-0.5px); }
+  75% { transform: translateX(0.5px); }
+}
+
+.hamburger-toggle.collapsed .line {
+  animation: wiggle 3s infinite;
+  animation-delay: calc(var(--line-index, 0) * 0.2s);
+}

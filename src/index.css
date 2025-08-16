@@ -1,0 +1,6 @@
+/* Import consolidated styles */
+@import './styles/index.css';
+
+code {
+  font-family: var(--font-code);
+}

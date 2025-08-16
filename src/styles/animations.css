@@ -1,0 +1,44 @@
+/* Consolidated animations used across components */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInSmall {
+  from {
+    transform: scale(0.9) translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  80% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,325 @@
+/* Consolidate Recipient Dialog - Hand-drawn themed consolidation modal */
+
+/* Dialog backdrop and positioning */
+.consolidate-dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-2xl);
+  backdrop-filter: blur(2px);
+}
+
+.consolidate-dialog {
+  background: var(--theme-bg);
+  border: var(--space-xs) solid var(--theme-black);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    4px 4px 0px var(--theme-black),
+    8px 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-ui);
+  position: relative;
+  transform: rotate(-0.1deg);
+  border-style: solid;
+  animation: consolidateDialogEnter 0.2s ease-out;
+}
+
+/* Dialog header */
+.consolidate-dialog-header {
+  background: var(--theme-gray-light);
+  border-bottom: var(--space-xs) dashed var(--theme-black);
+  padding: var(--space-2xl) var(--space-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.consolidate-dialog-title {
+  margin: 0;
+  color: var(--theme-text);
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--font-ui);
+}
+
+.consolidate-dialog-close-btn {
+  background: #ff6b6b;
+  border: 2px solid #1e1e1e;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  transform: rotate(0.2deg);
+  font-family: var(--font-ui);
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.consolidate-dialog-close-btn:hover {
+  background: var(--theme-danger);
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 3px 3px 0px #1e1e1e;
+}
+
+/* Dialog content */
+.consolidate-dialog-content {
+  padding: var(--space-3xl);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.consolidate-recipient-info h4 {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--theme-text);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.recipient-summary {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+  padding: var(--space-lg);
+  background: var(--theme-gray-light);
+  border: 1px dashed var(--theme-black);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2xl);
+  transform: rotate(0.1deg);
+}
+
+.total-amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--theme-success);
+}
+
+.transaction-count {
+  font-size: 14px;
+  color: var(--theme-text);
+  background: var(--theme-white);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--theme-black);
+}
+
+/* Transaction list */
+.current-transactions h4,
+.consolidated-preview h4 {
+  margin: var(--space-2xl) 0 var(--space-lg) 0;
+  color: var(--theme-text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.transaction-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px dashed var(--theme-black);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  background: var(--theme-white);
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+  border-bottom: 1px dotted #ddd;
+  gap: var(--space-lg);
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-item.consolidated {
+  background: rgba(33, 150, 243, 0.1);
+  border: 1px solid var(--theme-info);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.transaction-amount {
+  font-weight: bold;
+  color: var(--theme-success);
+  min-width: 80px;
+  text-align: right;
+}
+
+.transaction-description {
+  flex: 1;
+  color: var(--theme-text);
+  font-size: 14px;
+}
+
+.consolidated-description-input {
+  flex: 1;
+  padding: var(--space-md);
+  border: 1px solid var(--theme-black);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  background: var(--theme-white);
+}
+
+.consolidated-description-input:focus {
+  outline: none;
+  border-color: var(--theme-info);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+/* Consolidation arrow */
+.consolidate-arrow {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--theme-info);
+  margin: var(--space-xl) 0;
+  transform: rotate(-1deg);
+}
+
+/* Not available message */
+.consolidate-not-available {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px dashed #ffc107;
+  border-radius: var(--radius-md);
+  color: #856404;
+}
+
+/* Warning message */
+.consolidate-warning {
+  margin: var(--space-lg) 0 0 0;
+  padding: var(--space-lg);
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px dashed var(--theme-danger);
+  border-radius: var(--radius-md);
+  color: var(--theme-danger);
+  font-size: 13px;
+  line-height: 1.4;
+  transform: rotate(0.1deg);
+}
+
+/* Dialog actions */
+.consolidate-dialog-actions {
+  padding: var(--space-3xl);
+  border-top: var(--space-xs) dashed var(--theme-black);
+  background: var(--theme-gray-light);
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: flex-end;
+}
+
+.consolidate-cancel-btn,
+.consolidate-confirm-btn {
+  padding: var(--space-lg) var(--space-2xl);
+  border: 2px solid var(--theme-black);
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: rotate(-0.1deg);
+}
+
+.consolidate-cancel-btn {
+  background: var(--theme-white);
+  color: var(--theme-text);
+}
+
+.consolidate-cancel-btn:hover:not(:disabled) {
+  background: var(--theme-gray);
+  transform: rotate(0.1deg) scale(1.02);
+}
+
+.consolidate-confirm-btn {
+  background: var(--theme-info);
+  color: var(--theme-white);
+}
+
+.consolidate-confirm-btn:hover:not(:disabled) {
+  background: #1976d2;
+  transform: rotate(0.1deg) scale(1.02);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.consolidate-confirm-btn:disabled,
+.consolidate-cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: rotate(-0.1deg);
+}
+
+/* Entrance animation */
+@keyframes consolidateDialogEnter {
+  from {
+    opacity: 0;
+    transform: rotate(-0.1deg) scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-0.1deg) scale(1) translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .consolidate-dialog {
+    margin: var(--space-xl);
+    max-height: 95vh;
+  }
+  
+  .consolidate-dialog-header {
+    padding: var(--space-xl) var(--space-2xl);
+  }
+  
+  .consolidate-dialog-content {
+    padding: var(--space-2xl);
+  }
+  
+  .consolidate-dialog-actions {
+    padding: var(--space-2xl);
+    flex-direction: column;
+  }
+  
+  .recipient-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .transaction-amount {
+    text-align: left;
+    min-width: auto;
+  }
+}

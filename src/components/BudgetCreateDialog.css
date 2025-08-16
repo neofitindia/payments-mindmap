@@ -1,0 +1,179 @@
+/* Fonts imported via consolidated styles */
+
+/* Dialog backdrop and positioning */
+.budget-create-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(2px);
+}
+
+.budget-create-dialog {
+  background: #fffef7;
+  border: 3px solid #1e1e1e;
+  border-radius: 12px;
+  box-shadow:
+    4px 4px 0px #1e1e1e,
+    8px 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-ui);
+  position: relative;
+  /* Hand-drawn style imperfections */
+  transform: rotate(-0.2deg);
+  border-style: solid;
+}
+
+/* Dialog header */
+.budget-create-header {
+  background: #f8f8f0;
+  border-bottom: 2px dashed #666;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.budget-create-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1e1e;
+  font-family: var(--font-ui);
+  transform: rotate(0.1deg);
+}
+
+.budget-create-close {
+  background: #ff6b6b;
+  border: 2px solid #1e1e1e;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: var(--font-ui);
+  transition: all 0.2s ease;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.budget-create-close:hover {
+  background: var(--theme-danger);
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 3px 3px 0px #1e1e1e;
+}
+
+/* Dialog content */
+.budget-create-content {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.welcome-message {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: #e8f5e8;
+  border: 2px dashed var(--theme-success);
+  border-radius: 8px;
+  transform: rotate(0.1deg);
+}
+
+.welcome-message p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Form styling */
+.budget-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.2s ease;
+  transform: rotate(-0.1deg);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--theme-blue);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+  transform: rotate(0.1deg);
+}
+
+/* Remove - using consolidated .form-input:disabled from dialogs.css */
+
+/* Submit button - handdrawn override */
+.btn-create-budget-submit {
+  background: var(--theme-success);
+  border: var(--space-sm) solid var(--theme-black);
+  border-radius: var(--radius-md);
+  color: var(--theme-white);
+  padding: var(--space-xl) var(--space-3xl);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: rotate(0.2deg);
+  box-shadow: var(--shadow-handdrawn);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: var(--space-md);
+}
+
+.btn-create-budget-submit:hover:not(:disabled) {
+  background: var(--theme-success-dark);
+  transform: rotate(-0.2deg) translateY(-2px);
+  box-shadow: var(--shadow-handdrawn-hover);
+}
+
+.btn-create-budget-submit:disabled {
+  background: var(--theme-gray);
+  cursor: not-allowed;
+  transform: rotate(0deg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Desktop-first design - no mobile responsiveness */
